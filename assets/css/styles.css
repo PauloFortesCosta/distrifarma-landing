@@ -40,7 +40,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg)}
   transition: box-shadow .2s ease;
 }
 
-/* Alinha conteúdo como na 2ª imagem */
+/* Alinha conteúdo */
 .topbar__wrap{
   max-width: var(--container);
   margin: 0 auto;
@@ -105,8 +105,26 @@ body{font-family:var(--font);color:var(--text);background:var(--bg)}
 
 /* ================= HERO ================= */
 .hero{padding:18px 0}
-.hero__media{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.hero__media img{width:100%;height:auto;display:block}
+
+/* cartão do banner */
+.hero__media{
+  margin:0;
+  border-radius:var(--radius);
+  overflow:hidden;             /* corta qualquer sobra */
+  box-shadow:var(--shadow);
+  padding:0;                   /* garante sem bordas internas */
+}
+
+/* área que cobre 100% com a imagem */
+.hero__cover{
+  width:100%;
+  background: url("../img/hero.jpg") center / cover no-repeat;
+  display:block;
+  aspect-ratio: 1120 / 420;
+
+}
+
+
 
 /* ================= FRETE ================= */
 .frete{
