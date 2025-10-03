@@ -108,36 +108,27 @@ body{font-family:var(--font);color:var(--text);background:var(--bg)}
 
 /* cartão do banner */
 .hero__media{
-  margin:0;
-  padding:0;                  /* sem respiro interno */
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  background:none;            /* garante sem fundo dentro do card */
+  position: relative;           /* vira referência para o filho absoluto */
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+
+  /* define a ALTURA pela proporção 1120x420 = 37.5%  */
+  padding-top: 37.5%;
+  /* (isso faz o cartão sempre ter a mesma proporção do banner) */
 }
 
-/* área que cobre 100% com a imagem (responsivo) */
+/* imagem de fundo ocupando 100% do cartão */
 .hero__cover{
-  width:100%;
-  display:block;
-  background-image: url("../img/hero.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover !important;
-  border-radius: inherit;
-
-  /* mantém a proporção 1120x420 em QUALQUER largura */
-  aspect-ratio: 1120 / 420;
+  position: absolute;
+  inset: 0;                     /* top:0; right:0; bottom:0; left:0 */
+  background: url("../img/hero.jpg") center / cover no-repeat;
+  display: block;
 }
 
-/* Fallback para navegadores sem suporte a aspect-ratio */
-@supports not (aspect-ratio: 1){
-  .hero__cover::before{
-    content:"";
-    display:block;
-    padding-top: 37.5%;       /* 420 / 1120 * 100 */
-  }
-}
+/* remova heights/min-heights/aspect-ratio antigos da .hero__cover */
 
 
 
