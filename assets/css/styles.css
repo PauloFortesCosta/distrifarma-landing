@@ -104,25 +104,41 @@ body{font-family:var(--font);color:var(--text);background:var(--bg)}
 .pill-yellow:hover{ transform: translateY(-1px); filter: brightness(.98); }
 
 /* ================= HERO ================= */
-.hero{padding:18px 0}
+.hero{ padding:18px 0; }
 
 /* cartão do banner */
 .hero__media{
   margin:0;
+  padding:0;                  /* sem respiro interno */
   border-radius:var(--radius);
-  overflow:hidden;             /* corta qualquer sobra */
+  overflow:hidden;
   box-shadow:var(--shadow);
-  padding:0;                   /* garante sem bordas internas */
+  background:none;            /* garante sem fundo dentro do card */
 }
 
-/* área que cobre 100% com a imagem */
+/* área que cobre 100% com a imagem (responsivo) */
 .hero__cover{
   width:100%;
-  background: url("../img/hero.jpg") center / cover no-repeat;
   display:block;
-  aspect-ratio: 1120 / 420;
+  background-image: url("../img/hero.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  border-radius: inherit;
 
+  /* mantém a proporção 1120x420 em QUALQUER largura */
+  aspect-ratio: 1120 / 420;
 }
+
+/* Fallback para navegadores sem suporte a aspect-ratio */
+@supports not (aspect-ratio: 1){
+  .hero__cover::before{
+    content:"";
+    display:block;
+    padding-top: 37.5%;       /* 420 / 1120 * 100 */
+  }
+}
+
 
 
 
