@@ -104,31 +104,32 @@ body{font-family:var(--font);color:var(--text);background:var(--bg)}
 .pill-yellow:hover{ transform: translateY(-1px); filter: brightness(.98); }
 
 /* ================= HERO ================= */
-.hero{ padding:18px 0; }
+/* ===== HERO (modo <picture> + <img>) ===== */
+.hero { padding: 18px 0; }
 
 /* cartão do banner */
 .hero__media{
-  position: relative;           /* vira referência para o filho absoluto */
   margin: 0;
-  padding: 0;
+  padding: 0;                 /* sem respiro interno */
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-
-  /* define a ALTURA pela proporção 1120x420 = 37.5%  */
-  padding-top: 37.5%;
-  /* (isso faz o cartão sempre ter a mesma proporção do banner) */
+  background: none;           /* nada de fundo dentro do card */
+  position: static;           /* reseta caso tenha ficado relative */
+  height: auto;               /* garante que não ficou altura fixa */
 }
 
-/* imagem de fundo ocupando 100% do cartão */
-.hero__cover{
-  position: absolute;
-  inset: 0;                     /* top:0; right:0; bottom:0; left:0 */
-  background: url("../img/hero.jpg") center / cover no-repeat;
-  display: block;
-}
+/* remove qualquer traço de layout do modo anterior */
+.hero__cover{ display:none !important; }   /* se ainda existir no CSS antigo */
+.hero__media{ padding-top: 0 !important; } /* remove proporção antiga */
 
-/* remova heights/min-heights/aspect-ratio antigos da .hero__cover */
+/* <picture>/<img> ocupando 100% sem “gap” inline */
+.hero__picture{ display:block; line-height:0; }
+.hero__img{
+  display:block;              /* tira o espaço fantasma do <img> */
+  width:100%;
+  height:auto;                /* mantém a proporção da arte */
+}
 
 
 
@@ -400,26 +401,6 @@ img.card__banner{
 /* rodapé puxando pro vermelho da marca */
 .footer{ background:linear-gradient(180deg,var(--red) 0%, var(--red-700) 100%); }
 
-/* tamanho do banner principal (hero) */
-.hero__media{
-  height: clamp(260px, 28vw, 360px);   /* ajuste fino aqui se quiser um pouco +/− alto */
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-
-  /* centraliza a imagem e dá um fundo suave para o letterbox */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
-}
-/* MOSTRAR A IMAGEM TODA no hero */
-.hero__media img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
 
 /* ====== TOPBAR FIX extra ====== */
 .topbar{
