@@ -33,7 +33,7 @@ O projeto foi criado utilizando **HTML, CSS e JavaScript puro**, com design resp
 
 ## 💬 Contato
 
-📞 **WhatsApp:** [Enviar mensagem](https://wa.me/5561984523063?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Drogaria%20DistriFarma.)
+📱 WhatsApp: [61 98452-3063](https://wa.me/5561984523063?text=Ol%C3%A1%2C%20Paulo%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar.)
 
 📧 **E-mail:** pfortes2001@gmail.com  
 🌍 **Desenvolvido por:** [Paulo Ubiratan Fortes Costa](https://github.com/PauloFortesCosta)
