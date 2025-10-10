@@ -524,10 +524,5 @@ img.card__banner{
   .card h3{ font-size: 16px; }
   .price{ font-size: 18px; }
   .card .btn, .card .pedir{ padding: 10px 14px; font-size: 14px; }
-
-  /* selo menor e mais próximo da borda no mobile */
-  .footer{ padding-bottom: 56px; }
-  .footer .partner-badge{ right: 12px; bottom: 14px; }
-  .footer .partner-badge img{ width: 88px; }
 }
 
